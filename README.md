@@ -40,11 +40,14 @@ To run this project :
 * NodeJS v14.15.0
 
 ### Steps
+1. Open a Terminal tab at the folder where you have downloaded the code.
 1. Install dependencies by running `npm install`
 2. Start the app by running `npm run app`
-3. Open the browser (for best experience use Google Chrome) and navigate to [localhost:3000](http://localhost:3000/)
+3. Open the browser (for the best experience use Google Chrome) and navigate to [localhost:3000](http://localhost:3000/)
 
 The app will now open in your browser running on port 3000 (by default).<br/>
+
+Quit the server by pressing ctrl+C (Windows/Linux) or command+C (Mac) in the terminal.
 
 **Note:** Google will show a warning page informing you that the app has not been verified (since the app has not been published yet and requires access to sensitive information - Google Drive data). Here, click on *Advanced* -> *Continue with Spacenos (unsafe)* to utilize the app.
 
