@@ -38,7 +38,7 @@ function listFiles(auth, res) {
         console.log("Files:");
         files.map((file) => {
           //   console.log(`${file.name} (${file.id})`);
-          console.log(file);
+          // console.log(file);
           let fileType = file.name.slice(-4);
           if (fileType.localeCompare("docx") === 0) {
             allDocs.push(file);
