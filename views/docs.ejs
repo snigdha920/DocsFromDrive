@@ -20,16 +20,37 @@
   </head>
   <body>
     <div class="row">
-      <div class="col-8"></div>
       <div class="col-4">
         <div class="list-group list-group-flush" id="list-tab">
-            <% allDocs.forEach((doc) => {%>
-                <a class="list-group-item" href="<%=doc.webViewLink%>" aria-controls="Doc file"><%=doc.name%></a>
-            <% }); %>
-        </div>
+          <h1>Word Documents from your Google Drive.</h1>
+          <h5>Click on the name to view the doc.</h5>
+          <% allDocs.forEach((doc) => {%>
+            <a onClick="displayDoc(event)" class="list-group-item docElement" id="<%=doc.id%>"aria-controls="Doc file"><%=doc.name%></a>
+          <% }); %>
+          <div class="logout-button">
+            <button type="button" class="btn btn-outline-primary"><a href="/logout">Logout</a></button>
+          </div>
         </div>
       </div>
+      <div class="col-8" id="view-section">
+        <h5>View Here</h5>
+      </div>
     </div>
-    <script src="" async defer></script>
+    <script>
+      function displayDoc(event) {
+        let fileID = event.target.id;
+        let srcURL = "https://docs.google.com/file/d/" + fileID + "/preview?usp=drivesdk";
+        var viewSection = document.getElementById("view-section");
+        if(viewSection.firstElementChild !== null) {
+          viewSection.removeChild(viewSection.firstElementChild);
+        }
+        const documentToBeDisplayed = document.createElement('iframe');
+        documentToBeDisplayed.src = srcURL;
+        documentToBeDisplayed.width = "100%";
+        documentToBeDisplayed.height = "900px";
+        viewSection.appendChild(documentToBeDisplayed);
+        // alert(documentToBeDisplayed.src);
+      }
+    </script>
   </body>
 </html>

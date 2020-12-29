@@ -20,29 +20,36 @@ const scopes = [
   "https://www.googleapis.com/auth/drive.file",
   "https://www.googleapis.com/auth/drive.readonly",
 ];
-const allDocs = [];
 var isAuthenticated = false;
-function listFiles(auth, response) {
+function listFiles(auth, res) {
+  const allDocs = [];
   const drive = google.drive({ version: "v3", auth });
   drive.files.list(
     {
-      fields: "nextPageToken, files(id, name, webViewLink)",
+      fields: "nextPageToken, files(id, name, webViewLink, webContentLink)",
     },
-    (err, res) => {
-      if (err) return console.log("The API returned an error: " + err);
-      const files = res.data.files;
+    (err, result) => {
+      if (err || result === null) {
+        console.log("The API returned an error: " + err);
+        return res.render("error");
+      }
+      const files = result.data.files;
       if (files.length) {
         console.log("Files:");
         files.map((file) => {
           //   console.log(`${file.name} (${file.id})`);
           console.log(file);
-          allDocs.push(file);
+          let fileType = file.name.slice(-4);
+          if (fileType.localeCompare("docx") === 0) {
+            allDocs.push(file);
+          }
         });
-        response.render("docs", { allDocs: allDocs });
       } else {
         console.log("No files found.");
       }
-    }
+      console.log(allDocs);
+      res.render("docs", {allDocs: allDocs});
+    },
   );
 }
 app.get("/", (req, res) => {
@@ -53,7 +60,6 @@ app.get("/", (req, res) => {
       access_type: "offline",
       scope: scopes,
     });
-    // const authenticationURL = "https://www.googleapis.com/drive/v3/files";
     console.log(
       "Authenticate yourself by visiting this URL : " + authenticationURL
     );

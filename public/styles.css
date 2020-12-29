@@ -1,9 +1,17 @@
 body {
     text-align: center;
 }
+h5 {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
 .home {
     padding: 15% 15%;
 }
-.col-8 {
-    background-color: bisque;
+.list-group {
+    padding-top: 5%;
+}
+.logout-button {
+    padding: 2%;
+    color: black;
 }
