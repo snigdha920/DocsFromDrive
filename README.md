@@ -49,6 +49,6 @@ The app will now open in your browser running on port 3000 (by default).<br/>
 **Note:** Google will show a warning page informing you that the app has not been verified (since the app has not been published yet and requires access to sensitive information - Google Drive data). Here, click on *Advanced* -> *Continue with Spacenos (unsafe)* to utilize the app.
 
 ## Status
-[ ] Customize docs.ejs, app.js to show the user's Google profile.
-[ ] Explore different color schemes for the application.
-[ ] Modify docs.ejs, styles.css to show the document being viewed in a different color/format in the sidebar.
+- [ ] Customize docs.ejs, app.js to show the user's Google profile.
+- [ ] Explore different color schemes for the application.
+- [ ] Modify docs.ejs, styles.css to show the document being viewed in a different color/format in the sidebar.
