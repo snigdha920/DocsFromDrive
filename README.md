@@ -53,5 +53,4 @@ Quit the server by pressing ctrl+C (Windows/Linux) or command+C (Mac) in the ter
 
 ## Status
 - [ ] Customize docs.ejs, app.js to show the user's Google profile.
-- [ ] Explore different color schemes for the application.
 - [ ] Modify docs.ejs, styles.css to show the document being viewed in a different color/format in the sidebar.
